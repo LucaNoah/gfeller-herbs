@@ -2,20 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div class="row mb-2">
-    <div class="col-12 text-center">
-        <h2>Products</h2>
-        {% for c in current_categories %}
-        <span id="categories">
-            <a class="mb-2 btn btn-outline-dark"
-                href="{% url 'products' %}?category={{ c.name }}">{{ c.display_name }}</a>
-        </span>
-        {% endfor %}
-    </div>
-</div>
-<div class="row center">
-    <div class="mx-auto mb-4 col-4 col-md-3 col-lg-2">
-        <select class="selectpicker form-control" id="sort-select-box">
+<div class="w-layout-blockcontainer container-main w-container">
+    <h2 class="page-header">Our Products</h2>
+    <div class="sort-select-container">
+        <select id="sort-select-box">
             <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
                 high)
@@ -31,40 +21,23 @@
             </option>
         </select>
     </div>
-</div>
-<div class="row">
-    <div class="col mx-1 mx-sm-5">
-        <div class="col-12 col-xl-10 offset-xl-1">
-            {% for product in products %}
-            <div class="card card-product mb-2 d-inline-flex">
-                {% if product.image %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
-                </a>
-                {% else %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
-                {% endif %}
-                <div class="card-body">
-                    <a href="{% url 'product_detail' product.id %}">
-                        <h3 class="card-title">
-                            {{ product.name }}
-                        </h3>
-                    </a>
-                    <p class="card-text">
-                        {% if product.on_sale %}
-                        <s>{{ product.old_price }}$</s> <span><strong>{{ product.price }}$ <i
-                                    class="fa-solid fa-tag"></i></strong></span>
-                        {% else %}
-                        {{ product.price }}$
-                        {% endif %}
-                    </p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+    <ul role="list" class="list-products mt-s w-list-unstyled">
+        {% for product in products %}
+        <li class="list-item-product">
+            {% if product.image %}
+            <a href="{% url 'product_detail' product.id %}" class="w-inline-block"><img src="{{ product.image.url }}"
+                    loading="lazy" alt="{{ product.name }}" class="img-list-hero"></a>
+            {% else %}
+            <a href="{% url 'product_detail' product.id %}" class="w-inline-block"><img src="{{ MEDIA_URL }}noimage.png"
+                    loading="lazy" alt="{{ product.name }}" class="img-list-hero"></a>
+            {% endif %}
+            <a href="#" class="link-block w-inline-block">
+                <h2 class="h2-hero-products mt-s">{{ product.name }}</h2>
+            </a>
+            <p class="p-price-product-card"><span class="text-span-12">{{ product.price }}$</span> per Pack</p>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
 

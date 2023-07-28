@@ -2,29 +2,96 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 px-5">
-        <h1>
-            Pamper your body with natural products of the highest quality, guaranteed untreated, from Gfeller Herbs.
-        </h1>
-        <p id="sub-header">
-            Discover our range of selected natural products for nutrition or body care. We place the highest value on
-            100% naturalness and traceable origin.
-        </p>
-        <div class="text-center mt-4">
-            <span class="d-block">
-                <a href="{% url 'products' %}" class="btn btn-dark" id="index-btn">Discover
-                    Products</a>
-            </span>
-            <span class="d-block mt-2"><small>or learn more about us</small></span>
-            <span class="d-block">
-                <a class="text-dark social-icon mr-2"
-                    href="https://www.facebook.com/people/Gfeller-Herbs/100090312308848/" target="_blank" rel="noopener"
-                    aria-label="Our Facebook Page (opens in new tab)"><i class="fa-brands fa-square-facebook"></i></a>
-                <a class="text-dark social-icon" href="https://www.instagram.com/" target="_blank" rel="noopener"
-                    aria-label="Our Instagram Page (opens in new tab)"><i class="fa-brands fa-instagram"></i></a>
-            </span>
+<div class="w-layout-blockcontainer container-main w-container">
+    <aside class="section-hero mt-s wf-section">
+        <div class="w-layout-grid grid-hero"><img src="{% static 'webflow/images/cup-tea.jpg' %}" loading="lazy"
+                id="w-node-_6b98d864-29fd-f206-db6e-56e5b5fe9f43-b42247f5" sizes="(max-width: 767px) 100vw, 175px"
+                srcset="
+                {% static 'webflow/images/cup-tea-p-500.jpg' %} 500w,
+                {% static 'webflow/images/cup-tea-p-800.jpg' %} 800w,
+                {% static 'webflow/images/cup-tea-p-1080.jpg' %} 1080w,
+                {% static 'webflow/images/cup-tea.jpg' %} 1368w" alt="" class=" image-hero">
+            <div id="w-node-_5f7a03ee-ff50-78f2-9058-9115bb24e2e8-b42247f5" class="div-hero-wrapper">
+                <h1 class="text-white hero-heading">Natural Lose Tea</h1>
+                <h2 class="text-white mb-s">produced by family business</h2>
+                <a href="{% url 'products' %}" class="button-hero mt-s w-button">browse tea</a>
+            </div>
         </div>
-    </div>
+    </aside>
+
+    <!-- <div class="card card-product mb-2 d-inline-flex">
+        {% if products.0.image %}
+        <a href="{% url 'product_detail' products.0.id %}">
+            <img src="{{ products.0.image.url }}" class="card-img-top img-fluid" alt="{{ products.0.name }}">
+        </a>
+        {% else %}
+        <a href="{% url 'product_detail' products.0.id %}">
+            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ products.0.name }}">
+        </a>
+        {% endif %}
+        <div class="card-body">
+            <a href="{% url 'product_detail' products.0.id %}">
+                <h3 class="card-title">
+                    {{ products.0.name }}
+                </h3>
+            </a>
+            <p class="card-text">
+                {% if products.0.on_sale %}
+                <s>{{ products.0.old_price }}$</s> <span><strong>{{ products.0.price }}$ <i
+                            class="fa-solid fa-tag"></i></strong></span>
+                {% else %}
+                {{ products.0.price }}$
+                {% endif %}
+            </p>
+        </div>
+    </div> -->
+
+    <ul role="list" class="list-hero pt-s pb-s w-list-unstyled">
+        <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
+            {% if products.0.image %}
+            <a href="{% url 'product_detail' products.0.id %}" class="w-inline-block"><img
+                    src="{{ products.0.image.url }}" loading="lazy" alt="{{ products.0.name }}"
+                    class="img-list-hero"></a>
+            {% else %}
+            <a href="{% url 'product_detail' products.0.id %}" class="w-inline-block"><img
+                    src="{{ MEDIA_URL }}noimage.png" loading="lazy" alt="{{ products.0.name }}"
+                    class="img-list-hero"></a>
+            {% endif %}
+            <a href="{% url 'product_detail' products.0.id %}" class="link-block w-inline-block">
+                <h2 class="h2-hero-products mt-s">{{ products.0.name }}</h2>
+            </a>
+            <p class="p-price-product-card"><span class="text-span-12">{{ products.0.price }}$</span> per Pack</p>
+        </li>
+        <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
+            {% if products.0.image %}
+            <a href="{% url 'product_detail' products.1.id %}" class="w-inline-block"><img
+                    src="{{ products.1.image.url }}" loading="lazy" alt="{{ products.1.name }}"
+                    class="img-list-hero"></a>
+            {% else %}
+            <a href="{% url 'product_detail' products.1.id %}" class="w-inline-block"><img
+                    src="{{ MEDIA_URL }}noimage.png" loading="lazy" alt="{{ products.1.name }}"
+                    class="img-list-hero"></a>
+            {% endif %}
+            <a href="{% url 'product_detail' products.1.id %}" class="link-block w-inline-block">
+                <h2 class="h2-hero-products mt-s">{{ products.1.name }}</h2>
+            </a>
+            <p class="p-price-product-card"><span class="text-span-12">{{ products.1.price }}$</span> per Pack</p>
+        </li>
+        <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
+            {% if products.2.image %}
+            <a href="{% url 'product_detail' products.2.id %}" class="w-inline-block"><img
+                    src="{{ products.2.image.url }}" loading="lazy" alt="{{ products.2.name }}"
+                    class="img-list-hero"></a>
+            {% else %}
+            <a href="{% url 'product_detail' products.2.id %}" class="w-inline-block"><img
+                    src="{{ MEDIA_URL }}noimage.png" loading="lazy" alt="{{ products.2.name }}"
+                    class="img-list-hero"></a>
+            {% endif %}
+            <a href="{% url 'product_detail' products.2.id %}" class="link-block w-inline-block">
+                <h2 class="h2-hero-products mt-s">{{ products.2.name }}</h2>
+            </a>
+            <p class="p-price-product-card"><span class="text-span-12">{{ products.2.price }}$</span> per Pack</p>
+        </li>
+    </ul>
 </div>
 {% endblock %}

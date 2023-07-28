@@ -1,0 +1,14 @@
+.sort-select-container {
+    display: flex;
+    justify-content: center;
+}
+
+#sort-select-box {
+    height: 33px;
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+}
