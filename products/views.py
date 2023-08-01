@@ -13,6 +13,7 @@ def list_products(request):
     products, or products requested by search query.
     """
     products = Product.objects.all()
+    categories = Category.objects.all()
     search_query = None
     categories_queried = None
     sortkey = None
@@ -54,6 +55,7 @@ def list_products(request):
 
     context = {
         "products": products,
+        "categories": categories,
         "search_term": search_query,
         "current_categories": categories_queried,
         "current_sorting": sorting_queried,

@@ -4,6 +4,20 @@
 {% block content %}
 <div class="w-layout-blockcontainer container-main w-container">
     <h2 class="page-header">Our Products</h2>
+    <div class="div-btns-category">
+        {% for c in categories %}
+        {% if c in current_categories %}
+        {% if current_categories|length == 1 %}
+        <a href="{% url 'products' %}?category={{ category.name }}"
+            class="category-button category-button-a w-button">{{ c.display_name }}</a>
+        {% else %}
+        <a href="{% url 'products' %}?category={{ c.name }}" class="category-button w-button">{{ c.display_name }}</a>
+        {% endif %}
+        {% else %}
+        <a href="{% url 'products' %}?category={{ c.name }}" class="category-button w-button">{{ c.display_name }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
     <div class="sort-select-container">
         <select id="sort-select-box">
             <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
