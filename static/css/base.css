@@ -1,3 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Colors
+Primary #032407
+Secondary #f4c430
+Background #484848
+Text #333333  
+Button Red #d10000
+Button Orange #ff4b03
+*/
+
+/* Main Setup */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333333;
+}
+
+h1 {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+    font-size: 3.125rem;
+}
+
+h2 {
+    font-family: 'Caveat', sans-serif;
+    font-weight: 700;
+    font-size: 2.062rem;
+}
+
+/* Margins & Paddings */
+.mt-s {
+    margin-top: 8px;
+}
+
+.mb-s {
+    margin-bottom: 8px;
+}
+
+.mr-s {
+    margin-right: 8px;
+}
+
+.ml-s {
+    margin-left: 8px;
+}
+
+.mt-l {
+    margin-top: 16px;
+}
+
+.mb-l {
+    margin-bottom: 16px;
+}
+
+.mr-l {
+    margin-right: 16px;
+}
+
+.ml-l {
+    margin-left: 16px;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Caveat';
+    font-size: 21px;
+    font-weight: 700;
+    color: #333333;
+    background-color: #f4c430;
+    text-decoration: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    line-height: initial;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        width: fit-content;
+    }
+}
+
+
+/* Products List */
 .sort-select-container {
     display: flex;
     justify-content: center;
@@ -11,4 +95,94 @@
     border-style: solid;
     border-width: 1px;
     border-color: #fff;
+}
+
+@media (max-width: 767px) {
+    .btn-odd {
+        justify-content: end;
+    }
+
+    .btn-even {
+        justify-items: start;
+    }
+}
+
+/* Product Detail */
+.product-detail-form {
+    margin: 8px 0 0 88px;
+}
+
+.product-detail-form-control {
+    width: 69px;
+    height: 28px;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+}
+
+.fa-bag-shopping {
+    margin-left: 3px;
+}
+
+@media (max-width: 767px) {
+    .product-detail-form {
+        margin: 8px 0 0 16px;
+    }
+
+    .bnts-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+#cancelDeleteProduct {
+    color: #fff;
+    background-color: #ff4b03;
+    margin-right: 8px;
+}
+
+#confirmDeleteProduct {
+    color: #fff;
+    background-color: #d10000;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding-left: 8px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    padding-right: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }

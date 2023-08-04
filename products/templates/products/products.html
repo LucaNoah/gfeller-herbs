@@ -9,12 +9,14 @@
         {% if c in current_categories %}
         {% if current_categories|length == 1 %}
         <a href="{% url 'products' %}?category={{ category.name }}"
-            class="category-button category-button-a w-button">{{ c.display_name }}</a>
+            class="category-button category-button-a w-button btn-odd">{{ c.display_name }}</a>
         {% else %}
-        <a href="{% url 'products' %}?category={{ c.name }}" class="category-button w-button">{{ c.display_name }}</a>
+        <a href="{% url 'products' %}?category={{ c.name }}"
+            class="category-button w-button {% if forloop.counter|divisibleby:2 %}btn-even{% else %}btn-odd{% endif %}">{{ c.display_name }}</a>
         {% endif %}
         {% else %}
-        <a href="{% url 'products' %}?category={{ c.name }}" class="category-button w-button">{{ c.display_name }}</a>
+        <a href="{% url 'products' %}?category={{ c.name }}"
+            class="category-button w-button {% if forloop.counter|divisibleby:2 %}btn-even{% else %}btn-odd{% endif %}">{{ c.display_name }}</a>
         {% endif %}
         {% endfor %}
     </div>
@@ -45,10 +47,17 @@
             <a href="{% url 'product_detail' product.id %}" class="w-inline-block"><img src="{{ MEDIA_URL }}noimage.png"
                     loading="lazy" alt="{{ product.name }}" class="img-list-hero"></a>
             {% endif %}
-            <a href="#" class="link-block w-inline-block">
+            <a href="{% url 'product_detail' product.id %}" class="link-block w-inline-block">
                 <h2 class="h2-hero-products mt-s">{{ product.name }}</h2>
             </a>
-            <p class="p-price-product-card"><span class="text-span-12">{{ product.price }}$</span> per Pack</p>
+            <p class="p-price-product-card">
+                {% if product.on_sale %}
+                <span class="product-price-old">{{ product.old_price }}$</span> <span
+                    class="product-price">{{ product.price }}$</span> per Pack
+                {% else %}
+                <span class="product-price">{{ product.price }}$</span> per Pack
+                {% endif %}
+            </p>
         </li>
         {% endfor %}
     </ul>

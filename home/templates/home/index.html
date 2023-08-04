@@ -18,34 +18,6 @@
             </div>
         </div>
     </aside>
-
-    <!-- <div class="card card-product mb-2 d-inline-flex">
-        {% if products.0.image %}
-        <a href="{% url 'product_detail' products.0.id %}">
-            <img src="{{ products.0.image.url }}" class="card-img-top img-fluid" alt="{{ products.0.name }}">
-        </a>
-        {% else %}
-        <a href="{% url 'product_detail' products.0.id %}">
-            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ products.0.name }}">
-        </a>
-        {% endif %}
-        <div class="card-body">
-            <a href="{% url 'product_detail' products.0.id %}">
-                <h3 class="card-title">
-                    {{ products.0.name }}
-                </h3>
-            </a>
-            <p class="card-text">
-                {% if products.0.on_sale %}
-                <s>{{ products.0.old_price }}$</s> <span><strong>{{ products.0.price }}$ <i
-                            class="fa-solid fa-tag"></i></strong></span>
-                {% else %}
-                {{ products.0.price }}$
-                {% endif %}
-            </p>
-        </div>
-    </div> -->
-
     <ul role="list" class="list-hero pt-s pb-s w-list-unstyled">
         <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
             {% if products.0.image %}
@@ -60,7 +32,7 @@
             <a href="{% url 'product_detail' products.0.id %}" class="link-block w-inline-block">
                 <h2 class="h2-hero-products mt-s">{{ products.0.name }}</h2>
             </a>
-            <p class="p-price-product-card"><span class="text-span-12">{{ products.0.price }}$</span> per Pack</p>
+            <p class="p-price-product-card"><span class="product-price">{{ products.0.price }}$</span> per Pack</p>
         </li>
         <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
             {% if products.0.image %}
@@ -75,7 +47,7 @@
             <a href="{% url 'product_detail' products.1.id %}" class="link-block w-inline-block">
                 <h2 class="h2-hero-products mt-s">{{ products.1.name }}</h2>
             </a>
-            <p class="p-price-product-card"><span class="text-span-12">{{ products.1.price }}$</span> per Pack</p>
+            <p class="p-price-product-card"><span class="product-price">{{ products.1.price }}$</span> per Pack</p>
         </li>
         <li id="w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5" class="list-item-product-hero">
             {% if products.2.image %}
@@ -90,7 +62,7 @@
             <a href="{% url 'product_detail' products.2.id %}" class="link-block w-inline-block">
                 <h2 class="h2-hero-products mt-s">{{ products.2.name }}</h2>
             </a>
-            <p class="p-price-product-card"><span class="text-span-12">{{ products.2.price }}$</span> per Pack</p>
+            <p class="p-price-product-card"><span class="product-price">{{ products.2.price }}$</span> per Pack</p>
         </li>
     </ul>
 </div>

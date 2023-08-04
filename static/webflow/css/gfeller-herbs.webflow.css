@@ -241,6 +241,10 @@ h2 {
   margin-bottom: 16px;
 }
 
+.text-white.hero-heading {
+  font-size: 3.125rem;
+}
+
 .search-button-2 {
   color: #333;
   background-color: #f4c430;
@@ -826,7 +830,7 @@ h2 {
 .product-input-detail {
   width: 69px;
   border-radius: 0;
-  margin: 36px auto 0 88px;
+  margin: 8px auto 0 88px;
   padding-top: 0;
   padding-left: 0;
 }
@@ -886,13 +890,14 @@ h2 {
 
 .div-l-btns-products {
   margin-top: 16px;
+  display: flex;
 }
 
 .div-s-btns-product {
   display: none;
 }
 
-.btn2-s-product-detail-copy {
+.btn2-s-product-detail {
   color: #333;
   background-color: #f4c430;
   border-radius: 7px;
@@ -901,7 +906,7 @@ h2 {
   font-weight: 700;
 }
 
-.btn1-s-product-detail-copy {
+.btn1-s-product-detail {
   color: #333;
   background-color: #f4c430;
   border-radius: 7px;
@@ -1314,6 +1319,7 @@ h2 {
   width: auto;
   height: auto;
   background-color: #fff;
+  border: 1px solid #333;
   border-radius: 7px;
   padding: 8px;
   position: relative;
@@ -1388,7 +1394,7 @@ h2 {
   margin-bottom: 0;
 }
 
-.text-span-12 {
+.product-price {
   font-weight: 700;
 }
 
@@ -1434,6 +1440,100 @@ h2 {
   margin-left: 0;
   margin-right: 0;
   display: flex;
+}
+
+.product-price-old {
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+.p-price-product-detail {
+  margin-top: 32px;
+  margin-bottom: 0;
+  margin-left: 88px;
+}
+
+.btn1-l-product-edit {
+  width: 33px;
+  height: 33px;
+  color: #333;
+  background-color: #ff4b03;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 88px;
+  margin-right: 0;
+  font-family: Caveat, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+}
+
+.text-span-12 {
+  color: #fff;
+  font-family: "Fa Solid 900", sans-serif;
+}
+
+.btn1-l-product-delete {
+  width: 33px;
+  height: 33px;
+  color: #333;
+  background-color: #d10000;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 8px;
+  margin-right: 0;
+  font-family: Caveat, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+}
+
+.div-l-btns-small {
+  margin-top: 16px;
+  display: flex;
+}
+
+.btn1-s-product-edit {
+  width: auto;
+  height: auto;
+  color: #333;
+  background-color: #f4c430;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 8px;
+  font-family: Caveat, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.btn1-s-product-delete {
+  width: auto;
+  height: auto;
+  color: #fff;
+  background-color: #d10000;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 9px;
+  font-family: Caveat, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.text-span-13 {
+  font-family: "Fa Solid 900", sans-serif;
 }
 
 @media screen and (max-width: 991px) {
@@ -1784,12 +1884,24 @@ h2 {
     padding-left: 8px;
   }
 
+  .category-button {
+    width: 120px;
+  }
+
   .div-btns-category {
+    max-width: 265px;
     grid-column-gap: 8px;
     grid-row-gap: 8px;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 8px;
     padding-right: 8px;
-    display: flex;
+    display: grid;
   }
 
   .div-btns-category.pl-s {
@@ -1854,12 +1966,12 @@ h2 {
     display: block;
   }
 
-  .btn2-s-product-detail-copy {
+  .btn2-s-product-detail {
     margin-left: 0;
     display: inline-block;
   }
 
-  .btn1-s-product-detail-copy {
+  .btn1-s-product-detail {
     margin-top: 8px;
     margin-left: 0;
   }
@@ -1903,6 +2015,39 @@ h2 {
     margin-bottom: 0;
     padding-left: 8px;
     padding-right: 8px;
+  }
+
+  .p-price-product-detail {
+    margin-left: 16px;
+  }
+
+  .btn1-l-product-edit {
+    margin-top: 8px;
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
+  .btn1-l-product-delete {
+    margin-top: 8px;
+    margin-left: 0;
+  }
+
+  .div-l-btns-small {
+    margin-top: 8px;
+    margin-left: 16px;
+    display: flex;
+    overflow: visible;
+  }
+
+  .btn1-s-product-edit {
+    margin-top: 8px;
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
+  .btn1-s-product-delete {
+    margin-top: 8px;
+    margin-left: 0;
   }
 }
 
@@ -2021,7 +2166,7 @@ h2 {
   }
 
   .category-button {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: 0;
   }
 
@@ -2056,7 +2201,7 @@ h2 {
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr;
     grid-auto-columns: 1fr;
-    margin-top: 0;
+    margin-top: 8px;
     display: grid;
   }
 
@@ -2128,15 +2273,15 @@ h2 {
   }
 
   .container-product-detail {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .div-s-btns-product {
     margin-top: 8px;
   }
 
-  .btn1-s-product-detail-copy {
+  .btn1-s-product-detail {
     margin-left: 0;
   }
 
@@ -2278,8 +2423,8 @@ h2 {
   }
 
   .container-product-review {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .list-item-product-hero {
@@ -2302,6 +2447,19 @@ h2 {
   .sort-selector {
     margin-top: 8px;
   }
+
+  .btn1-l-product-edit {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .btn1-l-product-delete {
+    margin-left: 8px;
+  }
+
+  .btn1-s-product-edit, .btn1-s-product-delete {
+    margin-left: 16px;
+  }
 }
 
 #w-node-_6b98d864-29fd-f206-db6e-56e5b5fe9f43-b42247f5 {
@@ -2312,7 +2470,7 @@ h2 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
-#w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5, #w-node-_7f8ae5c5-1975-bdaa-6fd7-dbba8a0f570f-2c6e588f, #w-node-_8e1a09f5-ac17-4e58-aa15-562503e14de6-2c6e588f, #w-node-_349184e2-55c6-6c61-0247-ebde1298d951-2c6e588f, #w-node-af29fb10-287a-9f8a-256c-9029e5819b7f-2c6e588f, #w-node-b71442b6-c1b7-f847-0941-92829b53e2cb-56b0435f, #w-node-_24e33345-2ef2-aaad-f7b2-c50fa359b746-56b0435f, #w-node-ec6d0244-01a6-724f-8796-a45063b2d7f8-56b0435f, #w-node-_971e9e81-6e96-5319-4133-f215addb7b7e-56b0435f, #w-node-_7bb07948-71b8-339f-856a-b1819a103637-0d21465e, #w-node-_2c71ce9e-d0cf-bc2c-bf9b-93282c365d18-0d21465e, #w-node-_790e341a-0962-66ad-b7c0-0cb8a368fc2e-0d21465e, #w-node-fa4d4229-9540-4e01-3c34-c6e7d766c504-0d21465e {
+#w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5, #w-node-_7bb07948-71b8-339f-856a-b1819a103637-0d21465e, #w-node-_2c71ce9e-d0cf-bc2c-bf9b-93282c365d18-0d21465e, #w-node-_790e341a-0962-66ad-b7c0-0cb8a368fc2e-0d21465e, #w-node-fa4d4229-9540-4e01-3c34-c6e7d766c504-0d21465e {
   justify-self: center;
 }
 
@@ -2320,8 +2478,14 @@ h2 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
+@media screen and (max-width: 767px) {
+  #w-node-e9b928be-2604-b034-a26d-93a198dcfa8b-0d21465e, #w-node-e9b928be-2604-b034-a26d-93a198dcfa8d-0d21465e, #w-node-e9b928be-2604-b034-a26d-93a198dcfa8f-0d21465e, #w-node-e9b928be-2604-b034-a26d-93a198dcfa91-0d21465e, #w-node-_52f4aab9-f23b-7662-6a3a-ea95b1a786f0-0d21465e, #w-node-_52f4aab9-f23b-7662-6a3a-ea95b1a786f2-0d21465e {
+    justify-self: auto;
+  }
+}
+
 @media screen and (max-width: 479px) {
-  #w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5, #w-node-_7f8ae5c5-1975-bdaa-6fd7-dbba8a0f570f-2c6e588f, #w-node-_8e1a09f5-ac17-4e58-aa15-562503e14de6-2c6e588f, #w-node-_349184e2-55c6-6c61-0247-ebde1298d951-2c6e588f, #w-node-af29fb10-287a-9f8a-256c-9029e5819b7f-2c6e588f, #w-node-b71442b6-c1b7-f847-0941-92829b53e2cb-56b0435f, #w-node-_24e33345-2ef2-aaad-f7b2-c50fa359b746-56b0435f, #w-node-ec6d0244-01a6-724f-8796-a45063b2d7f8-56b0435f, #w-node-_971e9e81-6e96-5319-4133-f215addb7b7e-56b0435f, #w-node-_7bb07948-71b8-339f-856a-b1819a103637-0d21465e, #w-node-_2c71ce9e-d0cf-bc2c-bf9b-93282c365d18-0d21465e, #w-node-_790e341a-0962-66ad-b7c0-0cb8a368fc2e-0d21465e, #w-node-fa4d4229-9540-4e01-3c34-c6e7d766c504-0d21465e {
+  #w-node-_902f14fa-680f-d960-a12e-a8aaf59e0fc4-b42247f5, #w-node-_7bb07948-71b8-339f-856a-b1819a103637-0d21465e, #w-node-_2c71ce9e-d0cf-bc2c-bf9b-93282c365d18-0d21465e, #w-node-_790e341a-0962-66ad-b7c0-0cb8a368fc2e-0d21465e, #w-node-fa4d4229-9540-4e01-3c34-c6e7d766c504-0d21465e {
     justify-self: auto;
   }
 }
