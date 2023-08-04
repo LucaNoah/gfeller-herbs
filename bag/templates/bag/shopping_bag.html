@@ -3,65 +3,88 @@
 {% load shopping_bag_tools %}
 
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Sopping Cart <i id="bag-header-icon" class="fa-solid fa-basket-shopping text-dark"></i></h2>
+
+<h2 class="page-header">Shopping Bag </h2>
+<div class="w-layout-blockcontainer container-shopping-bag w-container">
+    <p class="bag-counter">
         {% if bag_items %}
-        <p>
-            You have {{ bag_count }} items in your cart
-        </p>
-        <div class="table-responsive">
-            <table class="table text-dark">
-                {% for bag_item in bag_items %}
-                <tr>
-                    <td>
-                        <a class="text-dark" id="bag-item-link"
-                            href="{% url 'product_detail' bag_item.product_id %}">{{ bag_item.product.name }}</a>
-                        {% if bag_item.product.has_weight %}{{ bag_item.weight }}{% endif %}
-                    </td>
-                    <td>
-                        <form class="form-group d-sm-inline-flex" method="POST"
-                            action="{% url 'edit_item' bag_item.product_id %}">
-                            {% csrf_token %}
-                            <input class="form-control sm-select-item mr-1" type="number" name="quantity"
-                                value="{{ bag_item.quantity }}" min="0" max="50"
-                                data-product_id="{{ bag_item.product_id }}" id="id_qty_{{ bag_item.product_id }}">
-                            {% if bag_item.product.has_weight %}
-                            <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
-                            {% endif %}
-                            <input class="btn btn-outline-dark mt-1 mt-sm-0" type="submit" value="Edit">
-                        </form>
-                    </td>
-                    <td>{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</td>
-                </tr>
-                {% endfor %}
-            </table>
-            <p class="text-center"><small>Enter 0 in the input field & <br> press Edit to
-                    remove an item.</small></p>
-        </div>
-        <br>
-        <div>
-            <p>Total: {{ total|floatformat:2 }}$</p>
-            <p>
-                Free delivery from {{ free_delivery_threshold|floatformat:2 }}$ <br>
-                {% if free_delivery_delta > 0 %}
-                If you still buy for {{ free_delivery_difference|floatformat:2 }}$ the delivery is free of charge!
-                {% endif %}
-                Delivery Charges: {{ delivery_cost|floatformat:2 }}$
-            </p>
-            <p><strong>Grand Total: {{ grand_total|floatformat:2 }}$</strong></p>
-            <a class="btn btn-outline-dark mb-1" href="{% url 'products' %}">
-                <i class="fa-solid fa-arrow-left"></i> Keep Shopping
-            </a>
-            <a class="btn btn-dark mb-1" href="{% url 'checkout' %}">
-                Secure Checkout <i class="fa-solid fa-lock"></i>
-            </a>
-        </div>
+        {% if bag_count == 1 %}
+        There is {{ bag_count }} item in your bag
         {% else %}
-        <p>There is currently nothing in the shopping bag.</p>
-        <a class="btn btn-outline-dark" href="{% url 'products' %}"><i class="fa-solid fa-arrow-left"></i> Back to
-            shopping</a>
+        There are {{ bag_count }} items in your bag
         {% endif %}
+        {% else %}
+        There is currently nothing in your bag
+        {% endif %}
+    </p>
+    <ul class="list-shopping-bag">
+        {% for bag_item in bag_items %}
+        <li class="list-item-bag-l">
+            <a href="{% url 'product_detail' bag_item.product_id %}" class="w-inline-block"><img
+                    src="{{ bag_item.product.image.url }}" loading="lazy" alt="{{ bag_item.product.name }}"
+                    class="img-bag"></a>
+            <div class="container-name-bag">
+                <a href="{% url 'product_detail' bag_item.product_id %}"
+                    class="link-item-bag">{{ bag_item.product.name }}</a>
+            </div>
+            <div class="container-bag-edit-button">
+                <div class="product-input-bag w-form">
+                    <form class="form-bag" method="POST" action="{% url 'edit_item' bag_item.product_id %}">
+                        {% csrf_token %}
+                        <input class="bag-form-control" type="number" name="quantity" value="{{ bag_item.quantity }}"
+                            min="0" max="50" data-product_id="{{ bag_item.product_id }}"
+                            id="id_qty_{{ bag_item.product_id }}">
+                        {% if bag_item.product.has_weight %}
+                        <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
+                        {% endif %}
+                        <input class="btn-bag-edit w-button" type="submit" value="Edit">
+                    </form>
+                </div>
+            </div>
+            <div class="item-bag-price">{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</div>
+        </li>
+        <li class="list-item-bag-s">
+            <div class="container-item-links">
+                <a href="{% url 'product_detail' bag_item.product_id %}" class="w-inline-block"><img
+                        src="{{ bag_item.product.image.url }}" loading="lazy" alt="{{ bag_item.product.name }}"
+                        class="img-bag"></a>
+                <a href="{% url 'product_detail' bag_item.product_id %}"
+                    class="link-item-bag">{{ bag_item.product.name }}<br></a>
+                <div class="item-bag-price">{{ bag_item.product.price | calculate_subtotal:bag_item.quantity }}$</div>
+            </div>
+            <div class="container-bag-edit-button">
+                <div class="product-input-bag w-form">
+                    <form class="form-bag" method="POST" action="{% url 'edit_item' bag_item.product_id %}">
+                        {% csrf_token %}
+                        <input class="bag-form-control" type="number" name="quantity" value="{{ bag_item.quantity }}"
+                            min="0" max="50" data-product_id="{{ bag_item.product_id }}"
+                            id="id_qty_{{ bag_item.product_id }}">
+                        {% if bag_item.product.has_weight %}
+                        <input type="hidden" name="product_weight" value="{{ bag_item.weight }}">
+                        {% endif %}
+                        <input class="btn-bag-edit w-button" type="submit" value="Edit">
+                    </form>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="bag-info">Enter 0 in the input field &amp;<br>press Edit to remove an item.</p>
+    <p class="bag-total">Total: {{ total|floatformat:2 }}$</p>
+    <p class="bag-delivery-cost">Free delivery from: {{ free_delivery_threshold|floatformat:2 }}$<br>Delivery Charges:
+        {{ delivery_cost|floatformat:2 }}$</p>
+    <p class="bag-grand-total">Grand Total: {{ grand_total|floatformat:2 }}$</p>
+    <div class="container-btns-bag-l">
+        <a href="{% url 'products' %}" class="btn-bag-main w-button"><span class="btn-icon1-bag"></span>Keep
+            Shopping</a>
+        <a href="{% url 'checkout' %}" class="btn-bag-main w-button">Secure Checkout<span
+                class="btn-icon2-bag"></span></a>
+    </div>
+    <div class="container-btns-bag-s">
+        <a href="{% url 'checkout' %}" class="btn-bag-main w-button">Secure Checkout<span
+                class="btn-icon2-bag"></span></a>
+        <a href="{% url 'products' %}" class="btn-bag-main w-button"><span class="btn-icon1-bag"></span>Keep
+            Shopping</a>
     </div>
 </div>
 {% endblock %}

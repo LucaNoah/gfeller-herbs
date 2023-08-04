@@ -108,11 +108,11 @@ h2 {
 }
 
 /* Product Detail */
-.product-detail-form {
+.product-form {
     margin: 8px 0 0 88px;
 }
 
-.product-detail-form-control {
+.product-form-control {
     width: 69px;
     height: 28px;
     padding: 0 7px 0 7px;
@@ -144,6 +144,15 @@ h2 {
 #confirmDeleteProduct {
     color: #fff;
     background-color: #d10000;
+}
+
+/* Shopping Bag */
+.bag-form-control {
+    width: 69px;
+    height: 38px;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
 }
 
 /* Modal styles */
