@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const deleteLink = document.querySelector(".btn1-l-product-delete");
+    const deleteLink = document.getElementById("btn-delete");
     const modal = document.getElementById("confirmationModalProduct");
     const closeModal = document.getElementById("closeModalProduct");
     const cancelDelete = document.getElementById("cancelDeleteProduct");
-    const confirmDelete = document.getElementById("confirmDeleteProduct");
 
     deleteLink.addEventListener("click", function (e) {
         e.preventDefault();

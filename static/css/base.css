@@ -80,6 +80,56 @@ h2 {
     }
 }
 
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding-left: 8px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    padding-right: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+@media (max-width: 478px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal {
+        margin-top: 50px;
+    }
+}
 
 /* Products List */
 .sort-select-container {
@@ -125,7 +175,7 @@ h2 {
 }
 
 @media (max-width: 767px) {
-    .product-detail-form {
+    .product-form {
         margin: 8px 0 0 16px;
     }
 
@@ -155,43 +205,43 @@ h2 {
     border-radius: 7px;
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding-left: 8px;
+/* Checkout */
+#card-element {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    background-color: white;
+    color: #333333;
     border: 1px solid #333333;
     border-radius: 7px;
-    width: 400px;
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.checkout-style-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    background-color: #ffffff;
 }
 
-.close {
-    cursor: pointer;
-    font-size: 24px;
-    padding-right: 16px;
+#card-errors .icon {
+    background-color: transparent;
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 8px;
-    padding-bottom: 8px;
+#submit-button {
+    margin-left: 8px;
+}
+
+.fa-credit-card {
+    margin-left: 3px;
+}
+
+@media (max-width: 478px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal {
+        margin-top: 50px;
+    }
 }

@@ -1,19 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script src="{% static 'js/modal-checkout.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Checkout <i class="fa-solid fa-truck-arrow-right"></i></h2>
-        <h4>Personal Details</h4>
-        <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
+<h2 class="page-header">Checkout </h2>
+<div class="w-layout-blockcontainer container-checkout w-container">
+    <div class="form-block-checkout w-form">
+        <form action="{% url 'checkout' %}" method="POST" class="form-checkout">
             {% csrf_token %}
+            <h3 class="heading-upper-checkout">Personal Info</h3>
             <span>
                 Email Adrress*
                 {{ order_form.email_address | as_crispy_field }}
-                Phone Number <br>
+                Phone Number
                 {{ order_form.phone_number | as_crispy_field }}
-                <h4>Delivery Information</h4>
+            </span>
+            <h3 class="heading-checkout">Delivery Information</h3>
+            <span>
                 Full Name*
                 {{ order_form.full_name | as_crispy_field }}
                 Address *
@@ -27,44 +33,38 @@
                 Country*
                 {{ order_form.country | as_crispy_field }}
             </span>
-            <p>Fields with an * are required!</p>
-            <h4>Payment</h4>
+            <p>Fileds with an * are required!</p>
+            <h3 class="heading-checkout">Payment</h3>
             <div id="card-element"></div>
             <div id="card-errors" role="alert"></div>
-            <div>
-                <p>
-                    Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
-                </p>
-                <a class="btn btn-outline-dark" href="{% url 'shopping_bag' %}">
-                    <i class="fa-solid fa-arrow-left"></i> Adjust Shopping Bag
-                </a>
-                <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#checkout-modal">Secure
-                    Checkout <i class="fa-solid fa-lock"></i></button>
-                <!-- Conformation Modal -->
-                <div class="modal fade" id="checkout-modal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Proceed with Checkout?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
-                                </p>
-                                <p>
-                                    If this window does not close, go back and correct the form!
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
-                                <button class="btn btn-dark mb-1" id="submit-button">
-                                    Complete Order <i class="fa-regular fa-credit-card"></i>
-                                </button>
-                            </div>
-                        </div>
+            <p class="paragraph-3">Your card will be charged with <span
+                    class="text-span-7">{{ grand_total|floatformat:2 }}$</span></p>
+            <div class="container-btns-bag-l">
+                <a href="{% url 'shopping_bag' %}" class="btn-bag-main w-button"><span
+                        class="btn-icon1-bag"></span>Adjust Bag</a>
+                <a href="#" id="btn-checkout" class="btn-bag-main w-button">Secure
+                    Checkout<span class="btn-icon2-bag"></span></a>
+            </div>
+            <div class="container-btns-bag-s">
+                <a href="#" id="btn-checkout" class="btn-bag-main w-button">Secure
+                    Checkout<span class="btn-icon2-bag"></span></a>
+                <a href="{% url 'shopping_bag' %}" class="btn-bag-main w-button"><span
+                        class="btn-icon1-bag"></span>Adjust Bag</a>
+            </div>
+            <!-- Confirmation Modal -->
+            <div id="confirmationModalCheckout" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Proceed with Checkout?</h4>
+                        <span class="close" id="closeModalCheckout">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" id="cancelCheckout">Go Back</button>
+                        <button id="submit-button" class="btn">Complete Order <i
+                                class="fa-regular fa-credit-card"></i></button>
                     </div>
                 </div>
             </div>

@@ -150,10 +150,13 @@ h2 {
   border: 0 #000;
   margin-right: 0;
   font-family: Roboto, sans-serif;
+  font-size: 14px;
   font-weight: 400;
 }
 
 .nav-menu {
+  width: auto;
+  max-width: 750px;
   margin-right: 0;
   display: flex;
 }
@@ -274,6 +277,7 @@ h2 {
 
 .button-hero.mt-s {
   color: #242424;
+  font-size: 15px;
   box-shadow: 0 0 20px 8px #f4c430;
 }
 
@@ -468,22 +472,24 @@ h2 {
 
 .ddlist.w--open {
   max-width: 0;
-  min-width: 175px;
+  min-width: 200px;
   background-color: #fff;
   border-radius: 7px;
   display: block;
 }
 
 .ddlist.ddlist-products {
-  min-width: 118px;
+  min-width: 150px;
 }
 
-.ddlist.ddlist-tea.w--open {
-  min-width: 110px;
+.ddlist.ddlist-products.w--open {
+  min-width: 130px;
+  text-align: center;
+  padding-right: 0;
 }
 
-.ddlist.ddlist-oil.w--open {
-  min-width: 115px;
+.ddlist.ddlist-tea.w--open, .ddlist.ddlist-oil.w--open {
+  min-width: 130px;
 }
 
 .nav-dd-1, .nav-dd-2, .nav-dd-3, .nav-dd-4 {
@@ -741,6 +747,7 @@ h2 {
 }
 
 .ddlist-upper {
+  text-align: left;
   border-bottom: 1px solid #333;
 }
 
@@ -1106,7 +1113,7 @@ h2 {
 
 .item-bag-price {
   align-items: center;
-  margin-left: 16px;
+  margin-left: 32px;
   display: flex;
 }
 
@@ -1160,7 +1167,7 @@ h2 {
 }
 
 .form-checkout {
-  margin-top: 8px;
+  margin-top: 0;
 }
 
 .heading-checkout {
@@ -1170,7 +1177,7 @@ h2 {
 
 .heading-upper-checkout {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 8px;
 }
 
 .paragraph-3 {
