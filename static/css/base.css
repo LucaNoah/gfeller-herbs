@@ -131,6 +131,11 @@ h2 {
     }
 }
 
+/* Navbar */
+.search {
+    margin: 16px 0 16px 0;
+}
+
 /* Products List */
 .sort-select-container {
     display: flex;

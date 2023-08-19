@@ -2,44 +2,24 @@
 {% load static %}
 
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Your order was successful!</h2>
-        <p>Thank you for your purchase, a confirmation email has been sent to {{ order.email_address }}.</p>
-        <h4>Order Details</h4>
-        <div class="table-responsive">
-            <table class="table text-dark">
-                {% for item in order.orderlineitems.all %}
-                <tr>
-                    <td>
-                        {{ item.product.name }} {% if item.product_weight %}{{ item.product_weight }}{% endif %}
-                    </td>
-                    <td>
-                        {{ item.quantity }} x {{ item.product.price }}$
-                    </td>
-                    <td></td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-        <div>
-            <h4>Delivered To</h4>
-            <p>
-                {{ order.full_name }} <br>
-                {{ order.delivery_address }} <br>
-                {{ order.town_or_city }} <br>
-                {% if order.zip_code %}
-                {{ order.zip_code }} <br>
-                {% endif %}
-                {% if order.state %}
-                {{ order.state }} <br>
-                {% endif %}
-                {{ order.country }} <br>
-                {% if order.phone_number %}
-                {{ order.phone_number }} <br>
-                {% endif %}
-            </p>
-        </div>
-    </div>
+<h2 class="page-header">Thank You!</h2>
+<div class="w-layout-blockcontainer container-checkout w-container">
+    <h3 class="heading-upper-checkout">Your order was successfull</h3>
+    <p class="p-checkout-success">Thank you for your purchase, a confirmation email has been sent to
+        {{ order.email_address }}.</p>
+    <h4 class="heading-4">Order Details</h4>
+    <ul role="list" class="list-checkout-success">
+        {% for item in order.orderlineitems.all %}
+        <li class="list-item-checkout-success">{{ item.product.name }}
+            {% if item.product_weight %}{{ item.product_weight }}{% endif %} x{{ item.quantity }}
+            {{ item.product.price }}$</li>
+        {% endfor %}
+    </ul>
+    <h4 class="h4-checkout-success">Delivered To</h4>
+    <p class="p-checkout-success">
+        {{ order.full_name }}<br>{{ order.delivery_address }}<br>
+        {{ order.town_or_city }}<br>{% if order.zip_code %}{{ order.zip_code }}{% endif %}<br>
+        {% if order.state %}{{ order.state }}{% endif %}{{ order.country }}
+    </p>
 </div>
 {% endblock %}

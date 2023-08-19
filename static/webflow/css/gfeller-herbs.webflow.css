@@ -138,10 +138,15 @@ h2 {
   height: 40px;
   border: 1px #000;
   border-radius: 0;
-  margin-top: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   margin-left: 0;
   padding-right: 0;
   display: flex;
+}
+
+.search.mt-s {
+  margin-left: 0;
 }
 
 .body {
