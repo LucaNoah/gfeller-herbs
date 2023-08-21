@@ -1205,17 +1205,18 @@ h2 {
 
 .list-item-checkout-success {
   border: 0 solid #000;
-  list-style-type: square;
+  list-style: disc;
 }
 
 .container-user-account {
-  max-width: 626px;
+  max-width: 800px;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 7px;
   margin-top: 16px;
   margin-bottom: 16px;
   padding: 16px;
+  display: block;
 }
 
 .grid-4 {
@@ -1232,18 +1233,19 @@ h2 {
   background-color: #f4c430;
   border-radius: 7px;
   margin-top: 8px;
+  margin-right: 8px;
   font-family: Caveat, sans-serif;
   font-size: 21px;
   font-weight: 700;
 }
 
-.icon-btn1-user-account {
-  margin-left: 5px;
+.icon1-user-account {
+  margin-left: 8px;
   font-family: "Fa Regular 400", sans-serif;
 }
 
-.icon-btn2-user-account {
-  margin-left: 5px;
+.icon2-user-account {
+  margin-left: 8px;
   font-family: "Fa Solid 900", sans-serif;
 }
 
@@ -1282,7 +1284,12 @@ h2 {
   margin-bottom: 0;
 }
 
-.form-block-checkout, .form-block-user-account {
+.form-block-checkout {
+  margin-bottom: 0;
+}
+
+.form-block-user-account {
+  max-width: 400px;
   margin-bottom: 0;
 }
 

@@ -61,6 +61,15 @@ h2 {
     margin-left: 16px;
 }
 
+/* Forms */
+.form-input {
+    height: 40px;
+    width: 100%;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+}
+
 /* Buttons */
 .btn {
     font-family: 'Caveat';
@@ -249,4 +258,9 @@ h2 {
     .modal {
         margin-top: 50px;
     }
+}
+
+/* Account */
+#id_default_country {
+    background-color: #fff;
 }

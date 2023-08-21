@@ -9,12 +9,15 @@ class UserAccountForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add classes to all fields
+        Set labels and classes
         """
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].label = False
             self.fields["has_newsletter_sub"].label = "Chek to Subscribe"
+            if field != "has_newsletter_sub":
+                self.fields[field].widget.attrs['class'] = 'form-input'
+                self.fields[field].label = False 
 
 
 class FeedbackForm(forms.ModelForm):

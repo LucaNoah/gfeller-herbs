@@ -2,108 +2,69 @@
 {% load static %}
 
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Hello, {{ user.username }}!</h2>
-        {% if request.user.is_superuser %}
-        <p>
-            Check new customer feedbacks? <br>
-            <a class="mt-2 btn btn-outline-dark" href="{% url 'list_feedbacks' %}">Customer Feedbacks</a>
-        </p>
-        <p>
-            Check new incoming returns? <br>
-            <a class="mt-2 btn btn-outline-dark" href="{% url 'list_returns' %}">Incoming Returns</a>
-        </p>
-        {% else %}
-        <p>
-            Do you have any suggestions for improvement or ideas? <br>
-            <a href="{% url 'add_feedback' %}" class="mt-2 btn btn-outline-dark">Let Us Know <i
-                    class="fa-regular fa-message"></i></a>
-        </p>
-        {% endif %}
-        <br>
-        <h4>Your Transacted Orders</h4>
-        <div class="table-responsive">
-            <table class="table text-dark">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Items</th>
-                        <th>Date</th>
-                        <th>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                    <tr>
-                        <td>{{ order.order_number|truncatechars:10 }}...</td>
-                        <td>
-                            <ul>
-                                {% for item in order.orderlineitems.all %}
-                                <li>
-                                    {{ item.product.name }}
-                                    {% if item.product.has_weight %}
-                                    {{ item.product_weight }}
-                                    {% endif %}
-                                    x {{ item.quantity }}
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.grand_total }}$</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+<h2 class="page-header">Your Account</h2>
+<div class="w-layout-blockcontainer container-user-account w-container">
+    <h3 class="heading-user-account">Welcome, {{ user.username }}</h3>
+    <p class="p-user-account"><span class="text-span-8">Do you have any improvement ideas or proposals?</span></p>
+    <a href="{% url 'add_feedback' %}" class="btn-user-account w-button">Let Us Know<span
+            class="icon1-user-account"></span> </a>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'list_feedbacks' %}" class="btn-user-account w-button">View Proposals<span
+            class="icon1-user-account"></span></a>
+    {% endif %}
+    <h4 class="h4-user-account">Your Transacted Orders</h4>
+    <div class="w-layout-grid grid-4">
+        <div class="th-user-account">Order Number</div>
+        <div class="th-user-account">Items</div>
+        <div class="th-user-account">Date</div>
+        <div class="th-user-account">Total Price</div>
+        {% for order in orders %}
+        <div>{{ order.order_number|truncatechars:10 }}...
         </div>
-        <h4>You want to return goods you have already received?</h4>
-        <p>
-            <a class="btn btn-outline-dark" href="{% url 'add_return' %}">Register Return <i
-                    class="fa-solid fa-truck-fast"></i></a>
-        </p>
-        <br>
-        <h4>Standard Delivery Information</h4>
-        <form action="{% url 'account' %}" method="POST">
+        <ul role="list">
+            {% for item in order.orderlineitems.all %}
+            <li>{{ item.product.name }} {% if item.product.has_weight %}{{ item.product_weight }}{% endif %}
+                x{{ item.quantity }} {{ item.product.price }}$</li>
+            {% endfor %}
+        </ul>
+        <div>{{ order.date }}</div>
+        <div>{{ order.grand_total }}$</div>
+        {% endfor %}
+    </div>
+    <h4 class="h4-user-account">You want to return goods you already received?</h4>
+    <a href="{% url 'add_return' %}" class="btn-user-account w-button">Register Return<span
+            class="icon2-user-account"></span> </a>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'list_returns' %}" class="btn-user-account w-button">View Returns<span
+            class="icon1-user-account"></span> </a>
+    {% endif %}
+    <h4 class="h4-user-account">Standard Delivery Information</h4>
+    <div class="form-block-user-account w-form">
+        <form action="{% url 'account' %}" method="POST" class="form-checkout">
             {% csrf_token %}
-            <span>
-                Full Name
-                {{ form.default_full_name | as_crispy_field }}
-            </span>
-            <span>
-                Address
-                {{ form.default_delivery_address | as_crispy_field }}
-            </span>
-            <span>
-                Town or City
-                {{ form.default_town_or_city | as_crispy_field }}
-            </span>
-            <span>
-                ZIP Code
-                {{ form.default_zip_code | as_crispy_field }}
-            </span>
-            <span>
-                Sate
-                {{ form.default_state | as_crispy_field }}
-            </span>
-            <span>
-                Country
-                {{ form.default_country | as_crispy_field }}
-            </span>
+            <label class="mt-s">Full Name</label>
+            {{ form.default_full_name }}
+            <label class="mt-s">Address</label>
+            {{ form.default_delivery_address }}
+            <label class="mt-s">Town or City</label>
+            {{ form.default_town_or_city }}
+            <label class="mt-s">ZIP Code</label>
+            {{ form.default_zip_code }}
+            <label class="mt-s">State</label>
+            {{ form.default_state }}
+            <label class="mt-s">Country</label>
+            {{ form.default_country }}
+            <button class="btn-user-account w-button">Update Information<span class="text-span-9"></span></button>
+            <h4 class="h4-user-account">Newsletter Subscription</h4>
+            <p class="p-user-account">With this option, you can subscribe to a free monthly newsletter service that
+                includes product releases and preparation suggestions.</p>
+            {{ form.has_newsletter_sub }}
+            <span class="mt-s checkbox-label w-form-label" for="checkbox-newsletter">Subscription Active</span>
             <br>
-            <h4>Newsletter</h4>
-            <span>
-                Subscription <br>
-                <small id="newsletter-info">With this option you can subscribe to a
-                    free monthly newsletter service
-                    that includes product releases and preparation suggestions.</small>
-                {{ form.has_newsletter_sub | as_crispy_field }}
-            </span>
-            <span>
-                Email address to receive newsletter
-                {{ form.newsletter_email_address | as_crispy_field }}
-            </span>
-            <button class="btn btn-dark">Update Information</button>
+            <label class="mt-s">Email Address for Newsletter</label>
+            {{ form.newsletter_email_address }}
+            <button class="btn-user-account w-button">Subscribe / Unsubscribe<span
+                    class="text-span-10"></span></button>
         </form>
     </div>
 </div>
