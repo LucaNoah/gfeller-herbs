@@ -1185,8 +1185,9 @@ h2 {
   margin-bottom: 8px;
 }
 
-.paragraph-3 {
+.text-bold {
   margin-bottom: 0;
+  font-weight: 700;
 }
 
 .text-span-7 {
@@ -1284,11 +1285,7 @@ h2 {
   margin-bottom: 0;
 }
 
-.form-block-checkout {
-  margin-bottom: 0;
-}
-
-.form-block-user-account {
+.form-block-checkout, .form-block-user-account {
   max-width: 400px;
   margin-bottom: 0;
 }
@@ -1556,6 +1553,26 @@ h2 {
 }
 
 .text-span-13 {
+  font-family: "Fa Solid 900", sans-serif;
+}
+
+.heading-upper-checkout-copy {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.text-bold-copy {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.text-span-14 {
+  margin-right: 8px;
+  font-family: "Fa Solid 900", sans-serif;
+}
+
+.text-span-15 {
+  margin-left: 8px;
   font-family: "Fa Solid 900", sans-serif;
 }
 
@@ -2519,6 +2536,16 @@ h2 {
 
   .btn1-s-product-edit, .btn1-s-product-delete {
     margin-left: 16px;
+  }
+
+  .text-span-16 {
+    margin-left: 8px;
+    font-family: "Fa Solid 900", sans-serif;
+  }
+
+  .text-span-17 {
+    margin-right: 8px;
+    font-family: "Fa Solid 900", sans-serif;
   }
 }
 
