@@ -76,6 +76,10 @@ h2 {
     min-height: 200px;
 }
 
+.image-edit label {
+    display: inline;
+}
+
 /* Buttons */
 .btn {
     font-family: 'Caveat';
@@ -228,6 +232,20 @@ h2 {
 
 #div_id_on_sale label {
     margin-bottom: 0;
+}
+
+/* Edit Product */
+.span-edit-image label {
+    display: inline;
+}
+
+#image-clear_id {
+    margin-left: 8px;
+}
+
+#image-clear_id,
+#id_image {
+    margin-bottom: 8px;
 }
 
 /* Shopping Bag */

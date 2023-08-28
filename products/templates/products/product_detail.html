@@ -20,9 +20,10 @@
     {% endif %}
     <p class="p-price-product-detail">
         {% if product.on_sale %}
-        <span class="product-price-old">21.00$</span> <span class="product-price">19.00$</span> per Pack
+        <span class="product-price-old">{{ product.old_price }}$</span> <span
+            class="product-price">{{ product.price }}$</span> per Pack
         {% else %}
-        <span class="product-price">19.00$</span> per Pack
+        <span class="product-price">{{ product.price }}$</span> per Pack
         {% endif %}
     </p>
     <form class="product-form" action="{% url 'add_item' product.id %}" method="POST">

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="page-header">Add Product </h2>
+<h2 class="page-header">Add Product</h2>
 <div class="w-layout-blockcontainer container-checkout w-container">
     <div class="form-block-checkout w-form">
         <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data" class="form-checkout">
@@ -19,34 +19,37 @@
                 <span class="text-bold">Image</span>
                 <br>
                 {{ field }}
-                {% endif %}
-                {% endfor %}
             </p>
+            {% endif %}
+            {% endfor %}
+
             <p class="mt-s text-bold">Fields with an * are required!</p>
             <div class="container-btns-bag-l">
-                <a href="#" class="btn-bag-main w-button"><span class="text-span-14"></span>All Products</a>
+                <a href="{% url 'products' %}" class="btn-bag-main w-button"><span class="text-span-14"></span>All
+                    Products</a>
                 <a id="btn-add-m" href="#" class="btn-bag-main w-button">Add
                     Product<span class="text-span-15">+</span></a>
             </div>
             <div class="container-btns-bag-s">
                 <a id="btn-add-s" href="#" class="btn-bag-main w-button">Add
                     Product<span class="text-span-16">+</span></a>
-                <a href="#" class="btn-bag-main w-button"><span class="text-span-17"></span>All Products</a>
+                <a href="{% url 'products' %}" class="btn-bag-main w-button"><span class="text-span-17"></span>All
+                    Products</a>
             </div>
             <!-- Confirmation Modal -->
             <div id="modal-add" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Send Product Review?</h4>
+                        <h4 class="modal-title">Add Product?</h4>
                         <span class="modal-close" id="close-add">&times;</span>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to add this review?
+                        Are you sure you want to add this product to the catalog?
                     </div>
                     <div class="modal-footer">
                         <a href="#" id="cancel-add" class="btn">Go Back</a>
-                        <button id="submit-button" class="btn">Send
-                            Review<i class="ml-s fa-solid fa-plus"></i></button>
+                        <button id="submit-button" class="btn">Add Product<i class="ml-s fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
             </div>
