@@ -37,6 +37,7 @@ class ReturnForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-input'
             self.fields["order"].widget.attrs["placeholder"] = (
                 "32 digit" " order number"
             )

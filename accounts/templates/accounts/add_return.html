@@ -1,47 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script src="{% static 'js/modal-return.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Return <i class="fa-solid fa-truck-fast"></i></h2>
-        <h4>Your Transacted Orders</h4>
-        <div class="table-responsive">
-            <table class="table text-dark">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Items</th>
-                        <th>Date</th>
-                        <th>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                    <tr>
-                        <td>{{ order.order_number }}</td>
-                        <td>
-                            <ul>
-                                {% for item in order.orderlineitems.all %}
-                                <li>
-                                    {{ item.product.name }}
-                                    {% if item.product.has_weight %}
-                                    {{ item.product_weight }}
-                                    {% endif %}
-                                    x {{ item.quantity }}
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.grand_total }}$</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <h4>Register Return</h4>
-        <form method="POST" action="{% url 'add_return' %}" enctype="multipart/form-data">
+<h2 class="page-header">Product Return</h2>
+<div class="w-layout-blockcontainer container-checkout w-container">
+    <h4>Your Orders</h4>
+    {% for order in orders %}
+    <p class="mt-s paragraph-10"><span class="text-bold">{{ order.order_number }}</span></p>
+    <div class="w-layout-grid grid-return">
+        <ul id="w-node-_69954938-7f41-94c1-a288-968aeb548536-cc231fd0" role="list" class="list-3">
+            {% for item in order.orderlineitems.all %}
+            <li>{{ item.product.name }} {% if item.product.has_weight %}{{ item.product_weight }}{% endif %}
+                x{{ item.quantity }}</li>
+            {% endfor %}
+        </ul>
+        <div id="w-node-_1efffa04-7d2b-f34f-2924-456662d119b4-cc231fd0" class="text-block-3">{{ order.date }}</div>
+    </div>
+    {% endfor %}
+    <h4>Register Return</h4>
+    <div class="form-block-checkout w-form">
+        <form action="{% url 'add_return' %}" method="POST" enctype="multipart/form-data" class="form-checkout">
             {% csrf_token %}
             <span>
                 {{ form.user.as_hidden }}
@@ -52,33 +34,34 @@
                 {{ form.comment | as_crispy_field }}
             </span>
             <p>Fields with an * are required!</p>
-            <div>
-                <a href="{% url 'account' %}" class="btn btn-outline-dark mt-2">Back to Account</a>
-                <button class="btn btn-dark mt-2" type="button" data-toggle="modal"
-                    data-target="#add-feedback-modal">Register & Send</button>
-                <!-- Conformation Modal -->
-                <div class="modal fade" id="add-feedback-modal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Register Return?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Are you sure you want to register your return?
-                                </p>
-                                <p>
-                                    If this window does not close, go back and correct the form!
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
-                                <button class="btn btn-dark" type="submit">Register & Send</button>
-                            </div>
-                        </div>
+            <p class="text-bold">Before your review becomes public, it will be reviewed by an admin. <strong>Please only
+                    write reviews about products that you have actually received!</strong></p>
+            <div class="container-btns-bag-l">
+                <a href="{% url 'account' %}" class="btn-bag-main w-button"><span class="text-span-14"></span>Your
+                    Account</a>
+                <a id="btn-return-m" href="#" class="btn-bag-main w-button">Register Return<span
+                        class="text-span-15"></span></a>
+            </div>
+            <div class="container-btns-bag-s">
+                <a id="btn-return-s" href="#" class="btn-bag-main w-button">Register Return<span
+                        class="text-span-15"></span></a>
+                <a href="{% url 'account' %}" class="btn-bag-main w-button"><span class="text-span-17"></span>Your
+                    Account</a>
+            </div>
+            <!-- Confirmation Modal -->
+            <div id="modal-return" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Send Return Registration?</h4>
+                        <span class="modal-close" id="close-return">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to send this return registration?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" id="cancel-return" class="btn">Go Back</a>
+                        <button id="submit-button" class="btn">Register Return<span
+                                class="text-span-15"></span></button>
                     </div>
                 </div>
             </div>
