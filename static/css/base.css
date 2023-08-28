@@ -69,6 +69,11 @@ h2 {
     border: 1px solid #333333;
     border-radius: 7px;
     background-color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.textarea {
+    min-height: 200px;
 }
 
 /* Buttons */
@@ -209,6 +214,20 @@ h2 {
 #confirmDeleteProduct {
     color: #fff;
     background-color: #d10000;
+}
+
+/* Add Product */
+#div_id_on_sale {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+#id_on_sale {
+    margin-right: 8px;
+}
+
+#div_id_on_sale label {
+    margin-bottom: 0;
 }
 
 /* Shopping Bag */

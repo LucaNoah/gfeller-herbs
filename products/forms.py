@@ -16,6 +16,9 @@ class ProductForm(forms.ModelForm):
             "old_price"
         ].label = "Old Price (Only needed if on sale is set)"
         self.fields["on_sale"].label = "On Sale"
+        for field in self.fields:
+            if field not in ["image", "on_sale"]:
+                self.fields[field].widget.attrs["class"] = "form-input"
 
 
 class ReviewForm(forms.ModelForm):

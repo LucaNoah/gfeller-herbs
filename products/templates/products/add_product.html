@@ -1,88 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script src="{% static 'js/modal-add-product.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
-
-
-
-
+<h2 class="page-header">Add Product </h2>
 <div class="w-layout-blockcontainer container-checkout w-container">
     <div class="form-block-checkout w-form">
-        <form action="{% url 'add_product' %}" method="POST" class="form-checkout" enctype="multipart/form-data">
-            {% for field in form %}
-            {% if field.name != 'image' %}
-            {{ field | as_crispy_field }}
-            {% else %}
-            <p>
-                Image
-                {{ field }}
-                {% endif %}
-                {% endfor %}
-            </p>
-            <p>Fields with an * are required!</p>
-            <p class="text-bold">Before your review becomes public, it will be reviewed by an admin. <strong>Please only
-                    write reviews about products that you have actually received!</strong></p>
-            <div class="container-btns-bag-l">
-                <a href="#" class="btn-bag-main w-button"><span class="text-span-14"></span>Your Account</a>
-                <a data-w-id="2ed7776f-8040-2230-b6f1-4732a0856c44" href="#" class="btn-bag-main w-button">Send
-                    Review<span class="text-span-15"></span></a>
-            </div>
-            <div class="container-btns-bag-s">
-                <a data-w-id="16093f2a-70fd-3615-0614-7187846c7c5d" href="#" class="btn-bag-main w-button">Send
-                    Review<span class="text-span-16"></span></a>
-                <a href="#" class="btn-bag-main w-button"><span class="text-span-17"></span>Your Account</a>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-
-
-
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Add Product</h2>
-        <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+        <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data" class="form-checkout">
             {% csrf_token %}
             {% for field in form %}
             {% if field.name != 'image' %}
             {{ field | as_crispy_field }}
             {% else %}
             <p>
-                Image
+                <span class="text-bold">Image</span>
+                <br>
                 {{ field }}
                 {% endif %}
                 {% endfor %}
             </p>
-            <p>Fields with an * are required!</p>
-            <div>
-                <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">Back to Products</a>
-                <button class="btn btn-warning mt-2 confirmation-add" type="button" data-toggle="modal"
-                    data-target="#add-modal">Create & Add</button>
+            <p class="mt-s text-bold">Fields with an * are required!</p>
+            <div class="container-btns-bag-l">
+                <a href="#" class="btn-bag-main w-button"><span class="text-span-14"></span>All Products</a>
+                <a id="btn-add-m" href="#" class="btn-bag-main w-button">Add
+                    Product<span class="text-span-15">+</span></a>
             </div>
-            <!-- Conformation Modal -->
-            <div class="modal fade" id="add-modal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Add this Product?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Are you sure you want to add this product to the catalog?
-                            </p>
-                            <p>
-                                If this window does not close, go back and correct the form!
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
-                            <button class="btn btn-warning" type="submit">Create & Add</button>
-                        </div>
+            <div class="container-btns-bag-s">
+                <a id="btn-add-s" href="#" class="btn-bag-main w-button">Add
+                    Product<span class="text-span-16">+</span></a>
+                <a href="#" class="btn-bag-main w-button"><span class="text-span-17"></span>All Products</a>
+            </div>
+            <!-- Confirmation Modal -->
+            <div id="modal-add" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Send Product Review?</h4>
+                        <span class="modal-close" id="close-add">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to add this review?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" id="cancel-add" class="btn">Go Back</a>
+                        <button id="submit-button" class="btn">Send
+                            Review<i class="ml-s fa-solid fa-plus"></i></button>
                     </div>
                 </div>
             </div>
