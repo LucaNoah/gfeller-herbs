@@ -19,9 +19,9 @@
         <div class="th-user-account">Date</div>
         <div class="th-user-account">Total Price</div>
         {% for order in orders %}
-        <div>{{ order.order_number|truncatechars:10 }}...
+        <div>{{ order.order_number|truncatechars:10 }}
         </div>
-        <ul role="list">
+        <ul class="list-account-itmes" role="list">
             {% for item in order.orderlineitems.all %}
             <li>{{ item.product.name }} {% if item.product.has_weight %}{{ item.product_weight }}{% endif %}
                 x{{ item.quantity }} {{ item.product.price }}$</li>

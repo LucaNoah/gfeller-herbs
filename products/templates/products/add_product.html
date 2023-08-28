@@ -2,6 +2,44 @@
 {% load static %}
 
 {% block content %}
+
+
+
+
+<div class="w-layout-blockcontainer container-checkout w-container">
+    <div class="form-block-checkout w-form">
+        <form action="{% url 'add_product' %}" method="POST" class="form-checkout" enctype="multipart/form-data">
+            {% for field in form %}
+            {% if field.name != 'image' %}
+            {{ field | as_crispy_field }}
+            {% else %}
+            <p>
+                Image
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+            </p>
+            <p>Fields with an * are required!</p>
+            <p class="text-bold">Before your review becomes public, it will be reviewed by an admin. <strong>Please only
+                    write reviews about products that you have actually received!</strong></p>
+            <div class="container-btns-bag-l">
+                <a href="#" class="btn-bag-main w-button"><span class="text-span-14"></span>Your Account</a>
+                <a data-w-id="2ed7776f-8040-2230-b6f1-4732a0856c44" href="#" class="btn-bag-main w-button">Send
+                    Review<span class="text-span-15"></span></a>
+            </div>
+            <div class="container-btns-bag-s">
+                <a data-w-id="16093f2a-70fd-3615-0614-7187846c7c5d" href="#" class="btn-bag-main w-button">Send
+                    Review<span class="text-span-16"></span></a>
+                <a href="#" class="btn-bag-main w-button"><span class="text-span-17"></span>Your Account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
 <div id="custom-container" class="row">
     <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
         <h2>Add Product</h2>

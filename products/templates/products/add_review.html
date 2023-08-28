@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_js %}
-<script src="{% static 'js/modals.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/modal-add-review.js' %}" type="text/javascript"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,14 +23,31 @@
             <div class="container-btns-bag-l">
                 <a href="{% url 'account' %}" class="btn-bag-main w-button"><span class="text-span-14"></span>Your
                     Account</a>
-                <a href="#" class="btn-bag-main w-button">Send
+                <a href="#" id="btn-review-m" class="btn-bag-main w-button">Send
                     Review<span class="text-span-15"></span></a>
             </div>
             <div class="container-btns-bag-s">
-                <a href="#" class="btn-bag-main w-button">Send
+                <a href="#" id="btn-review-s" class="btn-bag-main w-button">Send
                     Review<span class="text-span-16"></span></a>
                 <a href="{% url 'account' %}" class="btn-bag-main w-button"><span class="text-span-17"></span>Your
                     Account</a>
+            </div>
+            <!-- Confirmation Modal -->
+            <div id="modal-review" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Send Product Review?</h4>
+                        <span class="modal-close" id="close-review">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to add this review?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" id="cancel-review">Go Back</button>
+                        <button id="submit-button" class="btn">Send
+                            Review<span class="text-span-16"></span></button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

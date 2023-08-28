@@ -1477,7 +1477,7 @@ h2 {
   width: 33px;
   height: 33px;
   color: #333;
-  background-color: #ff4b03;
+  background-color: #ff743d;
   border-radius: 7px;
   justify-content: center;
   align-items: center;
@@ -1499,7 +1499,7 @@ h2 {
   width: 33px;
   height: 33px;
   color: #333;
-  background-color: #d10000;
+  background-color: red;
   border-radius: 7px;
   justify-content: center;
   align-items: center;
@@ -1574,6 +1574,10 @@ h2 {
 .text-span-15 {
   margin-left: 8px;
   font-family: "Fa Solid 900", sans-serif;
+}
+
+.list-2, .list-3 {
+  padding-left: 20px;
 }
 
 @media screen and (max-width: 991px) {
@@ -2475,6 +2479,11 @@ h2 {
     margin-right: 8px;
   }
 
+  .grid-4 {
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+  }
+
   .modal-card {
     height: auto;
     border-radius: 7px;
@@ -2546,6 +2555,10 @@ h2 {
   .text-span-17 {
     margin-right: 8px;
     font-family: "Fa Solid 900", sans-serif;
+  }
+
+  .list-2, .list-3 {
+    padding-left: 20px;
   }
 }
 
