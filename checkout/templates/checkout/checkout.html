@@ -42,27 +42,27 @@
             <div class="container-btns-bag-l">
                 <a href="{% url 'shopping_bag' %}" class="btn-bag-main w-button"><span
                         class="btn-icon1-bag"></span>Adjust Bag</a>
-                <a href="#" id="btn-checkout" class="btn-bag-main w-button">Secure
+                <a href="#" id="btn-checkout-m" class="btn-modal-m btn-bag-main w-button">Secure
                     Checkout<span class="btn-icon2-bag"></span></a>
             </div>
             <div class="container-btns-bag-s">
-                <a href="#" id="btn-checkout" class="btn-bag-main w-button">Secure
+                <a href="#" id="btn-checkout-s" class="btn-modal-s btn-bag-main w-button">Secure
                     Checkout<span class="btn-icon2-bag"></span></a>
                 <a href="{% url 'shopping_bag' %}" class="btn-bag-main w-button"><span
                         class="btn-icon1-bag"></span>Adjust Bag</a>
             </div>
             <!-- Confirmation Modal -->
-            <div id="confirmationModalCheckout" class="modal">
+            <div id="modal-checkout" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Proceed with Checkout?</h4>
-                        <span class="close" id="closeModalCheckout">&times;</span>
+                        <span class="modal-close" id="close-checkout">&times;</span>
                     </div>
                     <div class="modal-body">
                         Your card will be charged with <strong>{{ grand_total|floatformat:2 }}$</strong>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" id="cancelCheckout">Go Back</button>
+                        <button class="btn" id="cancel-checkout">Go Back</button>
                         <button id="submit-button" class="btn">Complete Order <i
                                 class="fa-regular fa-credit-card"></i></button>
                     </div>

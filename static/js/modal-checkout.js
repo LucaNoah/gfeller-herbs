@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const checkoutLink = document.getElementById("btn-checkout");
-    const modal = document.getElementById("confirmationModalCheckout");
-    const closeModal = document.getElementById("closeModalCheckout");
-    const cancelCheckout = document.getElementById("cancelCheckout");
+    const checkoutLinkM = document.getElementById("btn-checkout-m");
+    const checkoutLinkS = document.getElementById("btn-checkout-s");
+    const modal = document.getElementById("modal-checkout");
+    const closeModal = document.getElementById("close-checkout");
+    const cancelCheckout = document.getElementById("cancel-checkout");
 
-    checkoutLink.addEventListener("click", function (e) {
+    checkoutLinkM.addEventListener("click", function (e) {
         e.preventDefault();
-        console.log("test")
+        modal.style.display = "block";
+    });
+
+    checkoutLinkS.addEventListener("click", function (e) {
+        e.preventDefault();
         modal.style.display = "block";
     });
 

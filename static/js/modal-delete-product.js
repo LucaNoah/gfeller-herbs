@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const deleteLink = document.getElementById("btn-delete");
-    const modal = document.getElementById("confirmationModalProduct");
-    const closeModal = document.getElementById("closeModalProduct");
-    const cancelDelete = document.getElementById("cancelDeleteProduct");
+    const deleteLink = document.getElementById("btn-product-delete");
+    const modal = document.getElementById("modal-product-delete");
+    const closeModal = document.getElementById("close-product-delete");
+    const cancelDelete = document.getElementById("cancel-product-delete");
 
     deleteLink.addEventListener("click", function (e) {
         e.preventDefault();
