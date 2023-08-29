@@ -150,6 +150,63 @@ h2 {
     }
 }
 
+/* Allauth */
+/* Sign Up */
+.signup input {
+    height: 40px;
+    width: 100%;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+}
+
+/* Log In */
+.login input {
+    height: 40px;
+    width: 100%;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.login #id_remember {
+    width: fit-content;
+    height: fit-content;
+}
+
+.login label {
+    display: inline-table;
+}
+
+.login label,
+.login input {
+    white-space: nowrap;
+}
+
+.primaryAction,
+.secondaryAction {
+    display: flex;
+}
+
+/* Forgot Password */
+.password_reset #id_email {
+    height: 40px;
+    width: 100%;
+    padding: 0 7px 0 7px;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    background-color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.password_reset .btn {
+    border: 1px solid #f4c430;
+}
+
 /* Navbar */
 .search {
     margin: 16px 0 16px 0;
