@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script src="{% static 'js/modal-feedback.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Create Personal Feedback</h2>
-        <form method="POST" action="{% url 'add_feedback' %}" enctype="multipart/form-data">
+<h2 class="page-header">Personal Feedback</h2>
+<div class="w-layout-blockcontainer container-checkout w-container">
+    <div class="form-block-checkout w-form">
+        <form method="POST" action="{% url 'add_feedback' %}" enctype="multipart/form-data" class="form-checkout">
             {% csrf_token %}
             <span>
                 {{ form.user.as_hidden }}
@@ -13,34 +17,33 @@
                 {{ form.content | as_crispy_field }}
             </span>
             <p>Fields with an * are required!</p>
-            <p>No one but us will read this feedback, and it will not be published.</p>
-            <div>
-                <a href="{% url 'account' %}" class="btn btn-outline-dark mt-2">Back to Account</a>
-                <button class="btn btn-dark mt-2" type="button" data-toggle="modal"
-                    data-target="#add-feedback-modal">Create & Send</button>
-                <!-- Conformation Modal -->
-                <div class="modal fade" id="add-feedback-modal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Send Your Feedback?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Are you sure you want to send your feedback?
-                                </p>
-                                <p>
-                                    If this window does not close, go back and correct the form!
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Go Back</button>
-                                <button class="btn btn-dark" type="submit">Create & Send</button>
-                            </div>
-                        </div>
+            <p class="text-bold"><strong>No one but us will read this feedback, and it will not be published.</strong>
+            </p>
+            <div class="container-btns-bag-l">
+                <a href="{% url 'account' %}" class="btn-bag-main w-button"><span class="text-span-14"></span>Your
+                    Account</a>
+                <a id="btn-feedback-m" href="#" class="btn-bag-main w-button">Create &amp;
+                    Send<span class="text-span-15"></span></a>
+            </div>
+            <div class="container-btns-bag-s">
+                <a id="btn-feedback-s" href="#" class="btn-bag-main w-button">Create &amp;
+                    Send<span class="text-span-16"></span></a>
+                <a href="#" class="btn-bag-main w-button"><span class="text-span-17"></span>Your Account</a>
+            </div>
+            <!-- Confirmation Modal -->
+            <div id="modal-feedback" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Send Feedback?</h4>
+                        <span class="modal-close" id="close-feedback">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to send this feedback?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" id="cancel-feedback" class="btn">Go Back</a>
+                        <button id="submit-button" class="btn">Send
+                            Feedback<i class="ml-s fa-solid fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>

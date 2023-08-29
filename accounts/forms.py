@@ -25,6 +25,14 @@ class FeedbackForm(forms.ModelForm):
         model = CustomerFeedback
         fields = "__all__"
 
+    def __init__(self, *args, **kwargs):
+        """
+        Add classes to all form fields
+        """
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-input'
+
 
 class ReturnForm(forms.ModelForm):
     class Meta:
@@ -33,7 +41,7 @@ class ReturnForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders to some fields
+        Add placeholders and classes to some fields
         """
         super().__init__(*args, **kwargs)
         for field in self.fields:
