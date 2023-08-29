@@ -56,7 +56,7 @@
     {% endif %}
 </div>
 {% if reviews %}
-<h2 class="text-white">Customer Reviews:</h2>
+<h2 class="text-white center">Customer Reviews:</h2>
 {% endif %}
 {% for review in reviews %}
 {% if review.product|slugify == product.name|slugify %}

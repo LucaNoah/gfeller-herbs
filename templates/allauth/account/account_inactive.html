@@ -5,11 +5,9 @@
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>{% trans "Account Inactive" %}</h2>
-
-        <p>{% trans "This account is inactive." %}</p>
-    </div>
+<h2 class="page-header">{% trans "Account Inactive" %}</h2>
+<div class="w-layout-blockcontainer container-shopping-bag w-container">
+    <p>{% trans 'Are you sure you want to sign out?' %}</p>
+    <p>{% trans "This account is inactive." %}</p>
 </div>
 {% endblock %}
