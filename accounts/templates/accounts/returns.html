@@ -2,26 +2,19 @@
 {% load static %}
 
 {% block content %}
-<div id="custom-container" class="row">
-    <div class=" col-12 col-sm-11 offset-sm-1 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>Incoming Returns</h2>
-        {% if returns %}
-        {% for return in returns %}
-        <div class="card mb-2">
-            <div class="card-body">
-                <h4 class="card-title">Order: {{ return.order }}</h4>
-                <p class="card-text"><strong>Sent by:</strong><br>{{ return.user }} <strong>at:
-                    </strong><br>{{ return.date }}</p>
-                <p class="card-text"><strong>Sent products:</strong><br>{{ return.products }}</p>
-                <p class="card-text"><strong>Reason:</strong><br>{{ return.reason }}</p>
-                <p class="card-text"><strong>Action:</strong><br>{{ return.action }}</p>
-                <p class="card-text"><strong>Comment:</strong><br>{{ return.comment }}</p>
-            </div>
-        </div>
-        {% endfor %}
-        {% else %}
-        <p>No returns have been registered so far!</p>
-        {% endif %}
-    </div>
+<h2 class="page-header">Incoming Returns:</h2>
+{% if returns %}
+{% for return in returns %}
+<div class="w-layout-blockcontainer container-product-review w-container">
+    <h4 class="h4-product-review">{{ return.order }}</h4>
+    <p class="p-product-review"><span class="text-bold">Sent Products: </span>{{ return.products }}</p>
+    <p class="p-product-review"><span class="text-bold">Reason: </span><span>{{ return.reason }}</span></p>
+    <p class="p-product-review"><span class="text-bold">Action: </span><span>{{ return.action }}</span></p>
+    <p class="p-product-review"><span class="text-bold">Sent By: </span>{{ return.user }}</p>
+    <p class="p-product-review"><span class="text-bold">Sent At: </span>{{ return.date }}</p>
 </div>
+{% endfor %}
+{% else %}
+<h2 class="text-white">No returns have been registered so far!</h2>
+{% endif %}
 {% endblock %}
