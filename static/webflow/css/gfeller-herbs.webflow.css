@@ -1395,11 +1395,17 @@ h2 {
   border: 1px solid #000;
   border-radius: 7px;
   margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   padding: 16px 88px 16px 16px;
 }
 
-.h4-product-review, .p-product-review {
+.h4-product-review {
+  word-break: break-all;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.p-product-review {
   margin-top: 8px;
   margin-bottom: 0;
 }
@@ -1599,6 +1605,10 @@ h2 {
 
 .paragraph-10 {
   margin-bottom: 0;
+}
+
+.text-white {
+  text-align: center;
 }
 
 @media screen and (max-width: 991px) {
@@ -2534,8 +2544,11 @@ h2 {
   }
 
   .container-product-review {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 8px 8px 0;
+  }
+
+  .h4-product-review {
+    word-break: break-all;
   }
 
   .list-item-product-hero {

@@ -55,11 +55,14 @@
     </div>
     {% endif %}
 </div>
+{% if reviews %}
+<h2 class="text-white">Customer Reviews:</h2>
+{% endif %}
 {% for review in reviews %}
 {% if review.product|slugify == product.name|slugify %}
 {% if review.approved %}
 <div class="w-layout-blockcontainer container-product-review w-container">
-    <h4 class="h4-product-review">Customer Review: {{ review.title }}</h4>
+    <h4 class="h4-product-review">{{ review.title }}</h4>
     <p class="p-product-review">{{ review.content }}</p>
     <p class="p-product-review"><small>Written By: {{ review.author }}</small></p>
 </div>
