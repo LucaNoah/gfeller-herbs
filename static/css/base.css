@@ -61,6 +61,52 @@ h2 {
     margin-left: 16px;
 }
 
+/* Toasts */
+.message-container {
+    z-index: 99999999999;
+    position: fixed;
+    top: 6rem;
+    right: 1rem;
+}
+
+.toast {
+    position: fixed;
+    top: 24px;
+    right: 16px;
+    z-index: 1000;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #333333;
+    border-radius: 7px;
+    padding: 10px;
+    width: 300px;
+    overflow: visible;
+}
+
+.toast-header {
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.toast-body {
+    font-size: 14px;
+}
+
+.toast .toast-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+
 /* Forms */
 .form-input {
     height: 40px;
