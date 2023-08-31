@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = "DEVELOPMENT" in os.environ
 
-ALLOWED_HOSTS = ["https://gfeller-herbs-27db17ce579b.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["https://gfeller-herbs-c476c3239d66.herokuapp.com/", "localhost"]
 
 # Application definition
 
