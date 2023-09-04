@@ -258,6 +258,11 @@ h2 {
     margin: 16px 0 16px 0;
 }
 
+.nav-link,
+.w-dropdown-link {
+    color: #333 !important;
+}
+
 /* Products List */
 .sort-select-container {
     display: flex;
