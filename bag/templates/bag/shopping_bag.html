@@ -13,9 +13,10 @@
         There are {{ bag_count }} items in your bag
         {% endif %}
         {% else %}
-        There is currently nothing in your bag
+        There is currently nothing in your bag!
         {% endif %}
     </p>
+    {% if bag_items %}
     <ul class="list-shopping-bag">
         {% for bag_item in bag_items %}
         <li class="list-item-bag-l">
@@ -69,7 +70,7 @@
         {% endfor %}
     </ul>
     <p class="bag-info">Enter 0 in the input field &amp;<br>press Edit to remove an item.</p>
-    <p class="bag-total">Total: {{ total|floatformat:2 }}$</p>
+    <p>Total: {{ total|floatformat:2 }}$</p>
     <p class="bag-delivery-cost">Free delivery from: {{ free_delivery_threshold|floatformat:2 }}$<br>Delivery Charges:
         {{ delivery_cost|floatformat:2 }}$</p>
     <p class="bag-grand-total">Grand Total: {{ grand_total|floatformat:2 }}$</p>
@@ -85,5 +86,9 @@
         <a href="{% url 'products' %}" class="btn-bag-main w-button"><span class="btn-icon1-bag"></span>Keep
             Shopping</a>
     </div>
+    {% else %}
+    <a href="{% url 'products' %}" class="btn-bag-main w-button mt-s"><span class="btn-icon1-bag"></span>Keep
+        Shopping</a>
+    {% endif %}
 </div>
 {% endblock %}

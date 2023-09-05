@@ -137,8 +137,17 @@
                             {% endif %}
                         </nav>
                     </div>
-                    <a href="{% url 'shopping_bag' %}" class="nav-link cart w-nav-link"><span class="cart-text">Shopping
-                            Bag</span><span class="cart-icon"> </span></a>
+                    <a href="{% url 'shopping_bag' %}" class="nav-link cart w-nav-link">
+                        {% if bag_items %}
+                        <span class="bag-count"><strong>{{ bag_count }}</strong></span>
+                        {% else %}
+                        <span class="placeholder-bag"></span>
+                        {% endif %}
+                        <span class="cart-text">Shopping Bag</span><span class="cart-icon"> </span>
+                        {% if bag_items %}
+                        <span class="bag-total"><strong>{{ total }}$</strong></span>
+                        {% endif %}
+                    </a>
                 </nav>
                 <div class="menu-button w-nav-button">
                     <div class="icon w-icon-nav-menu"></div>
