@@ -1,6 +1,6 @@
 # GFELLER HERBS
 
-![Screenshot Responsiveness](/media/images_readme/screenshot_responsive.PNG)
+![Screenshot Responsiveness](/static/images/images_readme/screenshot_responsive.PNG/)
 
 Gfeller Herbs is an online store where natural products are sold.
 
@@ -38,7 +38,7 @@ The features that are necessary for the application are:
 
 The following tables are provided for the database and are required:
 
-![Database Table](/media/images_readme/database_table.jpeg)
+![Database Table](/static/images/images_readme/database_table.jpeg)
 
 ## User Stories
 
@@ -82,7 +82,7 @@ I had to recreate all user stories and issues on GitHub because after cloning my
 
 ---
 
-![Screenshot User Stories](/media/images_readme/screenshot_user_stories.PNG)
+![Screenshot User Stories](/static/images/images_readme/screenshot_user_stories.PNG)
 
 MoSCoW priority setting was used to create an agile project via GitHub Issues & GitHub Projects.
 
@@ -92,7 +92,7 @@ Link to the project with live issues can be found [here](https://github.com/user
 
 ---
 
-![Image Wireframe](/media/images_readme/wireframe.jpg)
+![Image Wireframe](/static/images/images_readme/wireframe.jpg)
 
 The web application was designed on a laptop screen size. This wireframe was used.
 
@@ -254,7 +254,7 @@ All Python files of the project were formatted by [Black Code Formatter](https:/
 
 ### - Lighthouse check from Chrome's dev tools
 
-![Screenshot Lighthouse](/media/images_readme/screenshot_lighthouse.PNG)
+![Screenshot Lighthouse](/static/images/images_readme/screenshot_lighthouse.PNG)
 
 ## Tests
 
@@ -264,13 +264,13 @@ All Python files of the project were formatted by [Black Code Formatter](https:/
 
 Automatic tests were created and implemented in the application. Further and more complex tests, especially in the checkout and bag app, will be implemented in the next development cycle.
 
-![Automated Tests](/media/images_readme/automated_tests.PNG)
+![Automated Tests](/static/images/images_readme/automated_tests.PNG)
 
 ### - Manual Tests
 
 Below is a list of manually run tests for the first development cycle of the application:
 
-![Manual Tests](/media/images_readme/manual_tests.PNG)
+![Manual Tests](/static/images/images_readme/manual_tests.PNG)
 
 ## Bugs
 
@@ -280,9 +280,9 @@ Below is a list of manually run tests for the first development cycle of the app
 
 The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release, I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore, the model field for this function was removed from the Product model. The templates, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
 
-![Screenshot Weight Bug](/media/images_readme/screenshot_product_weight.PNG)
+![Screenshot Weight Bug](/static/images/images_readme/screenshot_product_weight.PNG)
 
-![Screenshot 2 Weight Bug](/media/images_readme/screenshot_product_weight2.PNG)
+![Screenshot 2 Weight Bug](/static/images/images_readme/screenshot_product_weight2.PNG)
 
 ## Deployment
 
@@ -394,7 +394,7 @@ ALLOWED_HOSTS = ['HerokuAppName.herokuapp.com', 'localhost']
 
 ---
 
-![Screenshot Facebook Business Page](/media/images_readme/screenshot_fb_page.PNG)
+![Screenshot Facebook Business Page](/static/images/images_readme/screenshot_fb_page.PNG)
 
 Live Page [here](https://www.facebook.com/people/Gfeller-Herbs/100090312308848/)
 
