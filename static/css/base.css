@@ -28,7 +28,7 @@ h2 {
     font-size: 2.062rem;
 }
 
-/* Margins & Paddings */
+/* Margins, Paddings, Etc */
 .mt-s {
     margin-top: 8px;
 }
@@ -59,6 +59,10 @@ h2 {
 
 .ml-l {
     margin-left: 16px;
+}
+
+.center {
+    text-align: center;
 }
 
 /* Toasts */
