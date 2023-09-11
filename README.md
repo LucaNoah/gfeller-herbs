@@ -1,6 +1,6 @@
 # GFELLER HERBS
 
-![Screenshot Responsiveness](/static/images/images_readme/responsive.PNG/)
+![Screenshot Gfeller Herbs](/static/images/images_readme/gfeller-herbs-screenshot.PNG/)
 
 Gfeller Herbs is an online store where natural products are sold.
 
@@ -10,11 +10,24 @@ Customers can search for products or sort and categorize them using the fields i
 
 Store owners/employees receive a special user account that allows them to add, edit and delete products directly from the website. Categories must be added via the admin panel and re-linked in the navigation bar.
 
-Click [here](https://gfeller-herbs.herokuapp.com/) to live site.
+Click [here](https://gfeller-herbs-d2af5e64f88d.herokuapp.com/) to live site.
+
+## User Interface
+
+### Important User Interface Update
+
+The UI of this project was originally created with bootstrap 4.
+
+Here you can see the UI of this version:
+
+![Screenshot Gfeller Herbs Bootstrap](/static/images/images_readme/responsive.PNG)
+
+The UI of this project was originally created with bootstrap 4. Here you can see the UI of this version: 
+To demonstrate the principles of a good UI, I have reworked the design. Because the handling of CSS was difficult for myself, I decided to create the new design with the designer tool Webflow. This tool provides a graphical user interface for the creation of style rules. This and the fact that changes are shown directly helped me a lot to understand CSS better, especially display rules and positioning of elements. At this point, the plan was to ensure efficient maintainability of the code via a script that would insert code extracted from Webflow into my Django project. The problem with the integration of the code is that forms in Webflow cannot be processed in the way that is necessary for the data transfer to Django. So, the implementation of Webflow as a design tool does not provide enough maintainability. The design created in Webflow will be rebuilt with my now extended understanding of CSS in the same way with bootstrap to ensure the best possible maintainability. This will be done in the next development cycle.
+
+
 
 ## Business Model
-
----
 
 ### - Application Type
 
@@ -41,8 +54,6 @@ The following tables are provided for the database and are required:
 ![Database Table](/static/images/images_readme/database_table.jpeg)
 
 ## User Stories
-
----
 
 GitHub Issues/Projects were used to document user stories.
 The following labels were assigned for prioritization purposes: "Must Have", "Should Have", "Could Have" and "Won't Have".
@@ -80,8 +91,6 @@ I had to recreate all user stories and issues on GitHub because after cloning my
 
 ## Agile Methodology
 
----
-
 ![Screenshot User Stories](/static/images/images_readme/user_stories.PNG)
 
 MoSCoW priority setting was used to create an agile project via GitHub Issues & GitHub Projects.
@@ -97,9 +106,6 @@ Link to the project with live issues can be found [here](https://github.com/user
 The web application was designed on a laptop screen size. This wireframe was used.
 
 ## Existing Features
-
----
-
 ### - Navbar
 
 - Logo
@@ -194,8 +200,6 @@ Via the account view under register return, users can register goods that are to
 
 ## Future Features
 
----
-
 ### - Product Weight
 
 The possibility of adding products with weight and properly reflecting this information in the shopping cart as the order, also with adjusted prices.
@@ -205,8 +209,6 @@ The possibility of adding products with weight and properly reflecting this info
 In the future, products in the shopping cart should also be deleted by pressing a button (like the edit button) instead by entering 0.
 
 ## Technologies Used
-
----
 
 ### Languages Used
 
@@ -227,8 +229,6 @@ In the future, products in the shopping cart should also be deleted by pressing 
 - Amazon Web Services S3, IAM was used to host all media and static files
 
 ## Code Validation
-
----
 
 ### - HTML Validation
 
@@ -258,8 +258,6 @@ All Python files of the project were formatted by [Black Code Formatter](https:/
 
 ## Tests
 
----
-
 ### - Automated Tests
 
 Automatic tests were created and implemented in the application. Further and more complex tests, especially in the checkout and bag app, will be implemented in the next development cycle.
@@ -274,8 +272,6 @@ Below is a list of manually run tests for the first development cycle of the app
 
 ## Bugs
 
----
-
 ### - Weight for Products
 
 The application has been designed and developed to give a product the option to have a weight that is also passed on to the shopping cart and order. Shortly before the release, I noticed that the function is buggy, because the price is not adjusted for different weights. Therefore, the model field for this function was removed from the Product model. The templates, the view and all other functionality is still available and will be continued. The fix for this bug is planned for the next development cycle.
@@ -285,8 +281,6 @@ The application has been designed and developed to give a product the option to 
 ![Screenshot 2 Weight Bug](/static/images/images_readme/product_weight2.PNG)
 
 ## Deployment
-
----
 
 The steps taken to deploy the project are described below.
 
@@ -392,14 +386,6 @@ ALLOWED_HOSTS = ['HerokuAppName.herokuapp.com', 'localhost']
 
 ## Facebook Business Page
 
----
-
 ![Screenshot Facebook Business Page](/static/images/images_readme/fb_page.PNG)
 
 Live Page [here](https://www.facebook.com/people/Gfeller-Herbs/100090312308848/)
-
-## Credits
-
----
-
-Code Institute - Boutique Ado, Walkthrough Project
