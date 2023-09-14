@@ -105,6 +105,10 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
+SITE_NAME = "Gfeller Herbs"
+SITE_DOMAIN = "https://gfeller-herbs-d2af5e64f88d.herokuapp.com/"
+
+
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
