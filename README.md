@@ -1,6 +1,6 @@
-# GFELLER HERBS
+# Gfeller Herbs
 
-![Screenshot Gfeller Herbs](/static/images/images_readme/gfeller-herbs-screenshot.PNG/)
+![Screenshot Gfeller Herbs](/static/images/images_readme/gfeller-herbs-responsive.PNG)
 
 Gfeller Herbs is an online store where natural products are sold.
 
@@ -18,14 +18,14 @@ Click [here](https://gfeller-herbs-d2af5e64f88d.herokuapp.com/) to live site.
 
 The UI of this project was originally created with bootstrap 4.
 
+Click [here](https://gfeller-herbs-bs-34fbbcc26d47.herokuapp.com/) to live the fork of this version of the project and [here](https://github.com/LucaNoah/gfeller-herbs-wf/blob/main/README.md) to view documentation.
+
 Here you can see the UI of this version:
 
-![Screenshot Gfeller Herbs Bootstrap](/static/images/images_readme/responsive.PNG)
-
-The UI of this project was originally created with bootstrap 4. Here you can see the UI of this version: 
-To demonstrate the principles of a good UI, I have reworked the design. Because the handling of CSS was difficult for myself, I decided to create the new design with the designer tool Webflow. This tool provides a graphical user interface for the creation of style rules. This and the fact that changes are shown directly helped me a lot to understand CSS better, especially display rules and positioning of elements. At this point, the plan was to ensure efficient maintainability of the code via a script that would insert code extracted from Webflow into my Django project. The problem with the integration of the code is that forms in Webflow cannot be processed in the way that is necessary for the data transfer to Django. So, the implementation of Webflow as a design tool does not provide enough maintainability. The design created in Webflow will be rebuilt with my now extended understanding of CSS in the same way with bootstrap to ensure the best possible maintainability. This will be done in the next development cycle.
+![Screenshot Gfeller Herbs Bootstrap](/static/images/images_readme/gfeller-herbs-bs-responsive.PNG)
 
 
+To demonstrate the principles of a good UI, I have reworked the design. Because the handling of custom CSS was difficult for myself, I decided to create the new design with the designer tool Webflow. This tool provides a graphical user interface for the creation of style rules. This and the fact that changes are shown directly helped me a lot to understand CSS better, especially display rules and positioning of elements. At this point, the plan was to ensure efficient maintainability of the code via a script that would insert code extracted from Webflow into my Django project. The problem with the integration of the code is that forms in Webflow cannot be processed in the way that is necessary for the data transfer to Django. So, the implementation of Webflow as a design tool does not provide enough maintainability. Furthermore, the use of Webflow as it is used by me is too cost-intensive, because for the export of code to Webflow a subscription is required. The design created in Webflow will be rebuilt with my now extended understanding of CSS in the same way with bootstrap to ensure the best possible maintainability. This will be done in the next development cycle.
 
 ## Business Model
 
