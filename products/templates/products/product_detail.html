@@ -55,7 +55,7 @@
     </div>
     {% endif %}
 </div>
-{% if reviews %}
+{% if product.productreview_set.all %}
 <h2 class="text-white center">Customer Reviews:</h2>
 {% endif %}
 {% for review in reviews %}
